@@ -1,0 +1,67 @@
+CARDÁPIO ONLINE — GUIA RÁPIDO
+==============================
+
+COMO ABRIR
+----------
+Dê duplo clique em "index.html" para abrir no navegador.
+(Para editar imagens/fotos funcionarem corretamente, o ideal é hospedar
+esta pasta em um site — mas para visualizar e testar, abrir o arquivo
+direto no navegador já funciona.)
+
+O QUE EDITAR PARA ATUALIZAR O CARDÁPIO
+---------------------------------------
+Você só precisa mexer em UM arquivo:
+
+  js/config.js
+
+Lá dentro tem duas partes:
+
+1) RESTAURANTE  →  nome, logotipo, endereço, horário, link do Maps
+   e links das redes sociais (Facebook, Instagram, WhatsApp).
+
+2) MENU_SECOES  →  todas as categorias do cardápio (Entradas, Saladas,
+   Peixes, Carnes, Porções, Vegano e vegetariano, Bebidas não
+   alcoólicas, Cervejas, Chopps, Drinks, Café, Sobremesas).
+
+   - Para ADICIONAR um prato: copie um bloco { ... } dentro de "itens"
+     e preencha nome, preço, descrição, modo de preparo, rendimento
+     e acompanhamento.
+   - Para REMOVER um prato: apague o bloco { ... } correspondente.
+   - Para REMOVER uma categoria inteira: apague o bloco da seção
+     inteira (do "{ id: ..." até o "}," que fecha a seção).
+   - Para CRIAR uma nova categoria: copie uma seção inteira, mude o
+     "id" (sem espaços/acentos), o "titulo" e os itens.
+
+O arquivo tem comentários explicando cada campo.
+
+FOTOS DOS PRATOS
+----------------
+Cada item tem um campo "imagem". Coloque o arquivo da foto dentro da
+pasta "images/" (já existe uma subpasta para cada categoria) e aponte
+o caminho, por exemplo:
+
+  imagem: "images/carnes/picanha.jpg"
+
+Se o campo "imagem" ficar em branco (""), o site mostra automaticamente
+um ícone ilustrativo da categoria no lugar — então nada quebra visualmente
+enquanto as fotos reais não estão prontas.
+
+LOGOTIPO
+--------
+Troque o arquivo images/logo.svg pelo logotipo real (pode ser .png,
+.jpg ou .svg) e ajuste o caminho no campo "logo" dentro de RESTAURANTE
+em js/config.js.
+
+MAPA DO GOOGLE
+---------------
+No Google Maps: procure o endereço → Compartilhar → Incorporar um mapa
+→ copie o link de dentro de src="..." e cole no campo "mapsEmbedUrl".
+
+ARQUIVOS DO PROJETO
+--------------------
+index.html      → estrutura da página (não precisa editar)
+css/style.css   → cores, fontes e visual (edite só se quiser mudar o design)
+js/config.js    → EDITE AQUI: conteúdo do restaurante e do cardápio
+js/icons.js     → ícones usados quando não há foto (não precisa editar)
+js/render.js    → monta a página automaticamente (não precisa editar)
+images/         → pasta para colocar as fotos dos pratos e o logotipo
